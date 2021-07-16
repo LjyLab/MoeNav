@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>图片上传成功</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<script src="style/js/jquery-1.9.1.min.js"></script>
+		<link rel="stylesheet" type="text/css" href="style/css/sweetalert.css">
+		<script type="text/javascript" src="style/js/sweetalert-dev.js"></script>
+	</head>
+	<body>
+		<script type="text/javascript">
+			$(function() {// 等页面加载完毕之后调用
+			out()
+			});
+			function out() {
+				swal('图片上传成功', '\n\n即将为你返回...', 'success');
+				$('button, .confirm').click(function () {
+					window.close();
+				})
+			}
+		</script>
+	</body>
+</html>

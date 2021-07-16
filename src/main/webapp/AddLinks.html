@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+	<meta name="viewport" id="viewport" content="width=device-width,initial-scale=1">
+	<title>添加导航 - 萌导航</title>
+	<meta name="description" content="萌导航">
+	<meta name="keywords" content="萌导航">
+	<script src="style/js/jquery-1.9.1.min.js"></script>
+	<script src="style/js/addlinks.js"></script>
+	<!-- 核心 CSS 文件 -->
+	<link rel="stylesheet" type="text/css" href="style/css/sweetalert.css">
+	<script type="text/javascript" src="style/js/sweetalert-dev.js"></script>
+
+	<link rel="stylesheet" href="style/bootstarp/css/bootstrap.css">
+	<!-- 核心JS -->
+	<script src="style/bootstarp/js/bootstrap.js"></script>
+	<script src="style/bootstarp/js/bootstrap.bundle.js"></script>
+	<link rel="stylesheet" href="style/css/font-awesome.css">
+	<link href="style/css/main.css" rel="stylesheet">
+</head>
+<body>
+	<nav>
+		<a href="index.html" class="active">Index</a>
+		<a class="clip"></a><a rel='nofollow' onclick="GoOut()">LogOut</a>
+		<a class="clip"></a><a href="./" rel='nofollow'>Blank</a>
+<!--		<a class="clip"></a><a href="https://cuonc.com/" rel='nofollow' target="_blank">Blog</a>-->
+	</nav>
+<div class="background">
+	<canvas id="startrack"></canvas>
+	<div class="cover">
+	</div>
+</div>
+<div class="main">
+	<div class="ch intro">
+		<div class="container">
+			<div class="hello">
+				<h1 id="slogan">思考中……</h1>
+				<h2>
+				<div class="circle">
+					<span></span><span></span><span></span>
+				</div>
+					<p id="hitokoto"><a href="#" id="hitokoto_text" style="text-decoration:none; color: #ffffff">:D 获取中...</a></p>
+				</h2>
+			</div>
+		</div>
+	</div>
+
+	<div class="ch about">
+		<div class="container">
+			<h2 class="chtitle"><i class="fa fa-space-shuttle"></i> 你好,<span>请添加新的链接</span>以显示于页面！</h2>
+			<!-- 表单开始 -->
+				<div class="container">
+				  <form>
+				    <div class="form-group">
+				      <label><i class="fa fa-link" aria-hidden="true"></i> 链接的名称</label>
+				      <input type="text" class="form-control io" id="link_name" placeholder="链接的名称">
+				    </div>
+					<div class="form-group">
+					  <label><i class="fa fa-link" aria-hidden="true"></i> 链接的网址</label>
+					  <input type="text" class="form-control io" id="link_url" placeholder="网址请用http://或者https://开头" value="http://">
+					</div>
+
+					  <div class="input-group mb-3">
+						  <div class="input-group-prepend">
+							  <label class="input-group-text io" style="color: #ffffff">是否新标签打开</label>
+						  </div>
+						  <select class="custom-select io" id="link_target">
+							  <option selected value="_self">请选择...</option>
+							  <option value="_blank">新标签页打开</option>
+							  <option value="_self">当前页面打开</option>
+						  </select>
+					  </div>
+					  <div class="form-group">
+						  <label><i class="fa fa-globe" aria-hidden="true"></i> 字体颜色</label>
+						  <input type="color" class="form-control io" id="link_sorts" style="width: 5%">
+						  <br>
+						  <label><i class="fa fa-globe" aria-hidden="true"></i> 背景颜色</label>
+						  <input type="color" class="form-control io" id="link_style" style="width: 5%">
+					  </div>
+					<br>
+					  <!--异步必须注明type-->
+				    <button type="button" class="btn btn-outline-success w-100" onclick="addlinks();">Biubiu~</button>
+				  </form>
+				</div>
+				<!-- 表单结束 -->
+		</div>
+	</div>
+</div>
+<div class="find ch">
+	<div class="container links">
+		<h2 class="chtitle"><i class="fa fa-handshake-o"></i> 现已入驻链接<span> 如下 <i class="fa fa-arrow-down"></i></span></h2>
+		<div class="clear" id="ShowLinks"></div>
+	</div>
+</div>
+<div class="footer ch">
+	<div class="container">
+		<h3>MoeNav@Network</h3>
+		<p>
+			<script src="https://tenapi.cn/yiyan/?format=js"></script>
+		</p>
+		<!-- 版权 -->
+		</p>
+		<!--版权-->
+		<p class="c">Make by <a href="#" rel='nofollow' target="_blank">MoeNav</a> | Second revision by <a href="#">XiaoJun</a> </p>
+	</div>
+</div>
+	<script src="style/js/page.js"></script>
+	<script src="style/hullabaloo.js"></script>
+	<script src="style/js/main.js"></script>
+	<script src="style/bootstarp/js/sweetalert.min.js"></script>
+	<script type="text/javascript">
+		$.hulla = new hullabaloo();
+		setTimeout(function() {
+			$.hulla.send("Hi！欢迎您访问萌导航~");
+		}, 1000);
+		setTimeout(function() {
+			$.hulla.send("祝你有个完美的体验！");
+		}, 2000);
+		setTimeout(function() {
+			$.hulla.send("萌导航项目组敬上！");
+		}, 3000);
+
+		fetch('https://v1.hitokoto.cn')
+				.then(response => response.json())
+				.then(data => {
+					const hitokoto = document.getElementById('hitokoto_text')
+					hitokoto.href = 'https://hitokoto.cn/?uuid=' + data.uuid
+					hitokoto.innerText = data.hitokoto
+				})
+				.catch(console.error)
+	</script>
+</body>
+</html>

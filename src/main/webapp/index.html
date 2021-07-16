@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+	<meta name="viewport" id="viewport" content="width=device-width,initial-scale=1">
+	<title>萌导航 - 可能是最带感的技术导航</title>
+	<script type="text/javascript" src="style/js/jquery-1.9.1.min.js"></script>
+	<script src="style/js/main.js"></script>
+	<link rel="stylesheet" type="text/css" href="style/css/sweetalert.css">
+	<script type="text/javascript" src="style/js/sweetalert-dev.js"></script>
+
+	<link rel="stylesheet" href="style/css/font-awesome.css">
+	<meta name="description" content="萌导航">
+	<meta name="keywords" content="萌导航">
+	<link href="style/css/flaghome.css" rel="stylesheet">
+</head>
+<body>
+<nav>
+	<a href="index.html" class="active">Index</a>
+	<a class="clip"></a><a rel="nofollow" onclick="out()">LogOut</a>
+	<a class="clip"></a><a href="index/links"  target="_self">AddLinks</a>
+	<a class="clip"></a><a href="index/cont"  target="_self">AddCont</a>
+	<a class="clip"></a><a href="login.html" rel='nofollow' target="_blank">Register</a>
+</nav>
+
+
+<div class="background">
+	<canvas id="startrack"></canvas>
+	<div class="cover">
+	</div>
+</div>
+<div class="main">
+	<div class="ch intro">
+		<div class="container">
+			<div class="hello">
+				<h1 id="slogan">思考中……</h1>
+				<h2>
+					<div class="circle">
+						<span></span><span></span><span></span>
+					</div>
+					<p id="hitokoto"><a href="#" id="hitokoto_text" style="text-decoration:none; color: #ffffff">:D 获取中...</a></p>
+				</h2>
+			</div>
+		</div>
+	</div>
+	<div class="ch about">
+		<div class="container">
+			<h2 class="chtitle"><i class="fa fa-asterisk"></i> 你好， <span>这里是</span>咕咕咕！</h2>
+			<div class="clear">
+				<div class="introduct">
+					<p style="padding:1em 0;">
+						<i>哈？你不知道导航是撒？</i><span style="opacity: .2">（简单的说一下）</span>
+					</p>
+					<p>
+						当你正不知道干啥，不妨来这个网址导航串串门，当然啦，如果你是优质网站站长
+						<del>你也可以加入我们的哈，</del>我们提供自助申请哦，快来试试吧！
+					</p>
+					<p>
+						我们需要的是优质内容作者，你可以是社区，论坛，博客。
+					</p>
+					<p>
+						但是请绝对不要违反大陆和香港法律以及政治敏感内容！
+					</p>
+				</div>
+				<div class="chatbox">
+					<div class="line loading">
+						<span></span><span></span><span></span>
+					</div>
+				</div>
+			</div>
+			<ul class="skill clear">
+				<h2 class="chtitle">萌导航
+					<span>所用到的技术
+      <span style="opacity: .2">（咕咕咕！）</span></span>
+				</h2>
+				<li>
+					<p>HTML5/CSS3</p>
+					<div class="progress">
+						<div style="width:78%;"></div>
+						<span>制作网站程度的能力</span></div>
+				</li>
+				<li>
+					<p>JavaScript</p>
+					<div class="progress">
+						<div style="width:55%;"></div>
+						<span>使用现代轮子程度的能力</span></div>
+				</li>
+				<li>
+					<p>Java</p>
+					<div class="progress">
+						<div style="width:60%;"></div>
+						<span>赞美最好的语言程度的能力</span></div>
+				</li>
+				<li>
+					<p>Spring</p>
+					<div class="progress">
+						<div style="width:65%;"></div>
+						<span>让自己舒服程度的能力</span></div>
+				</li>
+				<li>
+					<p>SpringMvc</p>
+					<div class="progress">
+						<div style="width:20%;"></div>
+						<span>观测世界程度的能力</span></div>
+				</li>
+				<li>
+					<p>MyBatis</p>
+					<div class="progress">
+						<div style="width:82%;"></div>
+						<span>让事情发生程度的能力</span></div>
+				</li>
+				<li>
+					<p>Bootstrap</p>
+					<div class="progress">
+						<div style="width:12%;"></div>
+						<span>提供能页面重组更多样式</span></div>
+				</li>
+				<li>
+					<p>Font Awesome</p>
+					<div class="progress">
+						<div style="width:99%;"></div>
+						<span>提供了更多精美图标</span></div>
+				</li>
+			</ul>
+		</div>
+	</div>
+</div>
+
+<div class="gate ch">
+	<div class="container links">
+		<h2 class="chtitle"><i class="fa fa-certificate"></i> 萌导航项目组<span>特别感谢<span style="opacity: .2">（感谢检哥的技术支持和无限的帮助）</span></span></h2>
+		<div class="clear">
+			<!--内容开始-->
+			<a href="#" target="_blank">
+				<div class="item">
+					<div class="avatar">
+						<img src="style/img/Jiange.jpg">
+					</div>
+					<div class="inner">
+						<h5><i class="fa fa-commenting" aria-hidden="true" style="font-size: 23px;color: #f8ff62"></i> 孙检
+							<span class="bage"> 老师</span>
+<!--							<span style="font-weight:bold; color: #ffbb11; font-size: 17px">老师</span>-->
+						</h5>
+						<p>
+							给项目提供许多帮助以及更多技术支持
+						</p>
+					</div>
+				</div>
+			</a>
+		</div>
+	</div>
+</div>
+
+
+
+
+<div class="find ch">
+	<div class="container links">
+		<h2 class="chtitle"><i class="fa fa-thumbs-o-up"></i> 萌导航<span>网址列表<span style="opacity: .2">（快来找找你喜欢的）</span></span></h2>
+		<div class="clear col-3">
+			<a href="https://www.cuonc.com" rel="nofollow" target="_blank">
+				<div class="item">
+					<div class="bg" style="background-image: linear-gradient(to top, #fad0c4 0%, #ffd1ff 100%);">
+					</div>
+					<div class="inner">
+						<span style="font-weight:bold;font-size: 22px">小钧博客</span>
+					</div>
+				</div>
+			</a><a href="https://cuonc.com" rel="nofollow" target="_blank">
+			<div class="item">
+				<div class="bg" style="background-image: linear-gradient(to top, #fbc2eb 0%, #a6c1ee 100%);">
+				</div>
+				<div class="inner">
+					<span style="font-weight:bold;font-size: 22px">主页</span>
+				</div>
+			</div>
+		</a><a href="https://www.cuonc.com/dog" rel="nofollow" target="_blank">
+			<div class="item">
+				<div class="bg" style="background-image: linear-gradient(to top, #a8edea 0%, #fed6e3 100%);">
+				</div>
+				<div class="inner">
+					<span style="font-weight:bold;font-size: 22px">舔狗日记</span>
+				</div>
+			</div>
+		</a>
+		</div>
+		<!-- Links -->
+		<div class="clear" id="ShowLinks">
+
+		</div>
+		<!-- Links over -->
+	</div>
+</div>
+
+<div class="gate ch">
+	<div class="container links">
+		<h2 class="chtitle"><i class="fa fa-codepen"></i> 萌导航<span>开发团队<span style="opacity: .2">（实力与气质并肩）</span></span></h2>
+		<div class="clear">
+			<!--内容开始-->
+			<a href="#" target="_blank" rel='nofollow'>
+				<div class="item" >
+					<div class="avatar">
+						<img src="https://q1.qlogo.cn/g?b=qq&nk=1606847139&s=640">
+					</div>
+					<div class="inner" >
+						<h5>
+							<i class="fa fa-code" style="font-size: 23px;color: rgb(135,255,100)"></i> 梁钧元
+							<span style="font-weight:bold; color: #ffbb11; font-size: 17px">[Code]</span>
+							<span class="bage-fen"> 开发</span>
+						</h5>
+						<p>萌导航 发起人 兼 前端or后端</p>
+					</div>
+				</div>
+			</a>
+
+			<a href="#" target="_blank">
+				<div class="item">
+					<div class="avatar">
+						<img src="https://q1.qlogo.cn/g?b=qq&nk=1771728528&s=640">
+					</div>
+					<div class="inner">
+						<h5><i class="fa fa-database" style="font-size: 21px;color: rgba(255,167,87,0.93)"></i> 石章权 <span class="bage-fen"> MySQL</span></h5>
+						<p>
+							MySQL主要负责人
+						</p>
+					</div>
+				</div>
+			</a>
+			<a href="#" rel="nofollow" target="_blank">
+				<div class="item">
+					<div class="avatar">
+						<img src="https://q1.qlogo.cn/g?b=qq&nk=3249377552&s=640">
+					</div>
+					<div class="inner">
+						<h5><i class="fa fa-magic" style="font-size: 21px;color: rgba(224,255,69,0.93)"></i> 肖剑
+							<span style="font-weight:bold; color: #ffbb11; font-size: 17px">[项目策划]</span>
+							<span class="bage-fen"> 策划</span></h5>
+						<p>
+							项目策划 兼 总设计师
+						</p>
+					</div>
+				</div>
+			</a>
+
+			<a href="#" rel="nofollow" target="_blank">
+				<div class="item">
+					<div class="avatar">
+						<img src="https://q1.qlogo.cn/g?b=qq&nk=1981479679&s=640">
+					</div>
+					<div class="inner">
+						<h5><i class="fa fa-coffee" style="font-size: 21px;color: rgba(255,138,224,0.93)"></i> 杨秋红
+							<span style="font-weight:bold; color: #ffbb11; font-size: 17px">[主讲人]</span>
+							<span class="bage-fen"> 创意</span>
+						</h5>
+						<p>
+							(_咕咕咕_)
+						</p>
+					</div>
+				</div>
+			</a>
+		</div>
+	</div>
+</div>
+
+<div class="gate ch">
+	<div class="container links">
+		<h2 class="chtitle">
+			<i class="fa fa-hand-o-right"></i> 萌导航<span>友情链接<span style="opacity: .2">（快来加入我们叭）</span>
+			<a href="index/cont" target="_self"><i class="fa fa-chevron-right">
+			</i> 我要加入 <i class="fa fa-chevron-left"></i>
+			</a>
+		</span>
+		</h2>
+		<div class="clear" id="showcont">
+
+		</div>
+	</div>
+</div>
+
+<div class="gate ch">
+	<div class="container links">
+		<h2 class="chtitle">
+			<i class="fa fa-thumbs-up"></i> 萌导航<span>特别鸣谢！<span style="opacity: .2">(此致_敬礼)</span>
+		</span>
+		</h2>
+
+		<div class="clear">
+			<a href="#" target="_blank">
+				<div class="item">
+					<div class="avatar">
+						<img src="https://q1.qlogo.cn/g?b=qq&nk=1185636277&s=640">
+					</div>
+					<div class="inner">
+						<h5>李楚<span style="opacity: .3"> 芜湖！</span></h5>
+						<p>哦豁 🐂的</p>
+					</div>
+				</div>
+			</a>
+			<a href="#" target="_blank">
+				<div class="item">
+					<div class="avatar">
+						<img src="https://q1.qlogo.cn/g?b=qq&nk=2540073880&s=640">
+					</div>
+					<div class="inner">
+						<h5>熊民民</h5>
+						<p>
+							提供了框架相关技术支持
+						</p>
+					</div>
+				</div>
+			</a>
+			<a href="#" rel="nofollow" target="_blank">
+				<div class="item">
+					<div class="avatar">
+						<img src="https://q1.qlogo.cn/g?b=qq&nk=985151568&s=640">
+					</div>
+					<div class="inner">
+						<h5>谢仍富<span style="opacity: .3"> 你好牛哦</span></h5>
+						<p>
+							找出了我怎么也找不到的问题
+						</p>
+					</div>
+				</div>
+			</a>
+			<a href="https://hitokoto.cn/" rel="nofollow" target="_blank">
+				<div class="item">
+					<div class="avatar">
+						<img src="https://developer.hitokoto.cn/logo.png">
+					</div>
+					<div class="inner">
+						<h5>ヒトコト<span style="opacity: .3"> 一言API</span></h5>
+						<p>
+							感谢一言提供的一句话API服务
+						</p>
+					</div>
+				</div>
+			</a>
+		</div>
+	</div>
+</div>
+<div class="footer ch">
+	<div class="container">
+		<h3>MoeNav@Network</h3>
+		<p>
+			<script src="https://tenapi.cn/yiyan/?format=js"></script>
+		</p>
+		<!--版权-->
+		<p class="c">Make by <a href="#" rel='nofollow' target="_blank">MoeNav</a> | Second revision by <a href="#">XiaoJun</a> </p>
+	</div>
+</div>
+<script src="style/js/jquery-1.9.1.min.js"></script>
+<script src="style/js/page.js"></script>
+<script src="style/hullabaloo.js"></script>
+<script type="text/javascript">
+	$.hulla = new hullabaloo();
+	setTimeout(function() {
+		$.hulla.send("Hi！欢迎您访问萌导航~");
+	}, 1000);
+	setTimeout(function() {
+		$.hulla.send("祝你有个完美的体验！");
+	}, 2000);
+	setTimeout(function() {
+		$.hulla.send("萌导航项目组敬上！");
+	}, 3000);
+
+	fetch('https://v1.hitokoto.cn')
+			.then(response => response.json())
+			.then(data => {
+				const hitokoto = document.getElementById('hitokoto_text')
+				hitokoto.href = 'https://hitokoto.cn/?uuid=' + data.uuid
+				hitokoto.innerText = data.hitokoto
+			})
+			.catch(console.error)
+</script>
+</body>
+</html>

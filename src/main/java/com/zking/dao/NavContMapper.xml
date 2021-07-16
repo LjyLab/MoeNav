@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zking.dao.NavContMapper">
+  <resultMap id="BaseResultMap" type="com.zking.entity.NavCont">
+    <id column="moe_cid" jdbcType="INTEGER" property="moeCid" />
+    <result column="moe_name" jdbcType="VARCHAR" property="moeName" />
+    <result column="moe_url" jdbcType="VARCHAR" property="moeUrl" />
+    <result column="moe_sort" jdbcType="VARCHAR" property="moeSort" />
+    <result column="moe_image" jdbcType="VARCHAR" property="moeImage" />
+    <result column="moe_description" jdbcType="VARCHAR" property="moeDescription" />
+    <result column="moe_user" jdbcType="VARCHAR" property="moeUser" />
+    <result column="moe_order" jdbcType="VARCHAR" property="moeOrder" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    moe_cid, moe_name, moe_url, moe_sort, moe_image, moe_description, moe_user, moe_order
+  </sql>
+  <select id="selectByExample" parameterType="com.zking.entity.NavContExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from nav_cont
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from nav_cont
+    where moe_cid = #{moeCid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from nav_cont
+    where moe_cid = #{moeCid,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.zking.entity.NavContExample">
+    delete from nav_cont
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.zking.entity.NavCont">
+    insert into nav_cont (moe_cid, moe_name, moe_url, 
+      moe_sort, moe_image, moe_description, 
+      moe_user, moe_order)
+    values (#{moeCid,jdbcType=INTEGER}, #{moeName,jdbcType=VARCHAR}, #{moeUrl,jdbcType=VARCHAR}, 
+      #{moeSort,jdbcType=VARCHAR}, #{moeImage,jdbcType=VARCHAR}, #{moeDescription,jdbcType=VARCHAR}, 
+      #{moeUser,jdbcType=VARCHAR}, #{moeOrder,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.zking.entity.NavCont">
+    insert into nav_cont
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="moeCid != null">
+        moe_cid,
+      </if>
+      <if test="moeName != null">
+        moe_name,
+      </if>
+      <if test="moeUrl != null">
+        moe_url,
+      </if>
+      <if test="moeSort != null">
+        moe_sort,
+      </if>
+      <if test="moeImage != null">
+        moe_image,
+      </if>
+      <if test="moeDescription != null">
+        moe_description,
+      </if>
+      <if test="moeUser != null">
+        moe_user,
+      </if>
+      <if test="moeOrder != null">
+        moe_order,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="moeCid != null">
+        #{moeCid,jdbcType=INTEGER},
+      </if>
+      <if test="moeName != null">
+        #{moeName,jdbcType=VARCHAR},
+      </if>
+      <if test="moeUrl != null">
+        #{moeUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="moeSort != null">
+        #{moeSort,jdbcType=VARCHAR},
+      </if>
+      <if test="moeImage != null">
+        #{moeImage,jdbcType=VARCHAR},
+      </if>
+      <if test="moeDescription != null">
+        #{moeDescription,jdbcType=VARCHAR},
+      </if>
+      <if test="moeUser != null">
+        #{moeUser,jdbcType=VARCHAR},
+      </if>
+      <if test="moeOrder != null">
+        #{moeOrder,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.zking.entity.NavContExample" resultType="java.lang.Long">
+    select count(*) from nav_cont
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update nav_cont
+    <set>
+      <if test="record.moeCid != null">
+        moe_cid = #{record.moeCid,jdbcType=INTEGER},
+      </if>
+      <if test="record.moeName != null">
+        moe_name = #{record.moeName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.moeUrl != null">
+        moe_url = #{record.moeUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="record.moeSort != null">
+        moe_sort = #{record.moeSort,jdbcType=VARCHAR},
+      </if>
+      <if test="record.moeImage != null">
+        moe_image = #{record.moeImage,jdbcType=VARCHAR},
+      </if>
+      <if test="record.moeDescription != null">
+        moe_description = #{record.moeDescription,jdbcType=VARCHAR},
+      </if>
+      <if test="record.moeUser != null">
+        moe_user = #{record.moeUser,jdbcType=VARCHAR},
+      </if>
+      <if test="record.moeOrder != null">
+        moe_order = #{record.moeOrder,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update nav_cont
+    set moe_cid = #{record.moeCid,jdbcType=INTEGER},
+      moe_name = #{record.moeName,jdbcType=VARCHAR},
+      moe_url = #{record.moeUrl,jdbcType=VARCHAR},
+      moe_sort = #{record.moeSort,jdbcType=VARCHAR},
+      moe_image = #{record.moeImage,jdbcType=VARCHAR},
+      moe_description = #{record.moeDescription,jdbcType=VARCHAR},
+      moe_user = #{record.moeUser,jdbcType=VARCHAR},
+      moe_order = #{record.moeOrder,jdbcType=VARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.zking.entity.NavCont">
+    update nav_cont
+    <set>
+      <if test="moeName != null">
+        moe_name = #{moeName,jdbcType=VARCHAR},
+      </if>
+      <if test="moeUrl != null">
+        moe_url = #{moeUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="moeSort != null">
+        moe_sort = #{moeSort,jdbcType=VARCHAR},
+      </if>
+      <if test="moeImage != null">
+        moe_image = #{moeImage,jdbcType=VARCHAR},
+      </if>
+      <if test="moeDescription != null">
+        moe_description = #{moeDescription,jdbcType=VARCHAR},
+      </if>
+      <if test="moeUser != null">
+        moe_user = #{moeUser,jdbcType=VARCHAR},
+      </if>
+      <if test="moeOrder != null">
+        moe_order = #{moeOrder,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where moe_cid = #{moeCid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.zking.entity.NavCont">
+    update nav_cont
+    set moe_name = #{moeName,jdbcType=VARCHAR},
+      moe_url = #{moeUrl,jdbcType=VARCHAR},
+      moe_sort = #{moeSort,jdbcType=VARCHAR},
+      moe_image = #{moeImage,jdbcType=VARCHAR},
+      moe_description = #{moeDescription,jdbcType=VARCHAR},
+      moe_user = #{moeUser,jdbcType=VARCHAR},
+      moe_order = #{moeOrder,jdbcType=VARCHAR}
+    where moe_cid = #{moeCid,jdbcType=INTEGER}
+  </update>
+</mapper>

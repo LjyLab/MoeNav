@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xsi:schemaLocation="http://www.springframework.org/schema/mvc 
+	http://www.springframework.org/schema/mvc/spring-mvc-4.3.xsd
+		http://www.springframework.org/schema/beans 
+		http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context 
+		http://www.springframework.org/schema/context/spring-context-4.3.xsd">
+	<!-- 4.让扫描spring扫描这个包下所有的类，让标注spring注解的类生效 -->
+	<context:component-scan base-package="com.zking.controller" />
+	
+	<!-- 1.两个标准配置 -->
+    <!-- 简化配置：          
+     (1)自动注册DefaultAnootationHandlerMapping,AnotationMethodHandlerAdapter           
+     (2)提供一些列：数据绑定，数字和日期的format @NumberFormat, @DateTimeFormat, xml,json默认读写支持  
+      -->
+	<mvc:annotation-driven />
+	<!-- 静态资源默认servlet配置，防止静态资源被拦截          
+	(1)加入对静态资源的处理：js,gif,png          
+	(2)允许使用"/"做整体映射  -->
+	<mvc:default-servlet-handler/>
+	
+	<!-- 2.视图解析器 -->
+	<bean
+		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<!-- prefix：前缀 suffix：后缀 -->
+		<property name="prefix" value="/" />
+		<property name="suffix" value=".html"></property>
+	</bean>
+	
+	<!-- 3.文件上传的解析器 -->
+    <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+    	<!-- 上传图片的最大尺寸 10M-->
+        <property name="maxUploadSize" value="20485760"></property>
+        <!-- 默认编码 -->
+        <property name="defaultEncoding" value="utf-8"></property>
+    </bean>
+    
+<!--     配置拦截器-->
+	<mvc:interceptors>
+	    <mvc:interceptor>
+	        <!-- 配置拦截器作用的路径 -->
+			<!--拦截自有路径-->
+	        <mvc:mapping path="/index/**" />
+			<!--拦截Links添加的访问路径-->
+			<!--为了防止用户直接访问功能路径,拦截掉访问路径阻断方法,即使能进入功能路径也无法添加成功-->
+			<mvc:mapping path="/links/insertSelective" />
+			<mvc:mapping path="/cont/insertSelective" />
+	        <!-- 配置不需要拦截作用的路径 -->
+<!--	         <mvc:exclude-mapping path="/" />-->
+	        <!-- 定义<mvc:interceptor>元素中，表示匹配指定路径的请求才进行拦截 -->
+	        <bean class="com.zking.interceptor.LoginInterceptor" />
+    	</mvc:interceptor>
+	</mvc:interceptors>
+</beans>

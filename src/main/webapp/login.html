@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8">
+    <title>萌导航 - 登陆</title>
+    <link rel="stylesheet" href="style/css/dmaku.css">
+    <script src="style/js/jquery-1.9.1.min.js"></script>
+	<script src="style/js/login.js"></script>
+	<script src="style/js/register.js"></script>
+    <link rel="stylesheet" type="text/css" href="style/css/sweetalert.css">
+    <script type="text/javascript" src="style/js/sweetalert-dev.js"></script>
+</head>
+
+<body>
+    <div class="dowebok" id="dowebok">
+        <div class="form-container sign-up-container">
+            <form action="">
+                <h1>注册萌导航</h1>
+               <div class="social-container">
+				 <h3>(｡•ˇ‸ˇ•｡)</h3>
+                </div>
+                <!-- <span>请开始注册您的账号</span> -->
+                <input type="text" id="account" placeholder="您的账号">
+                <input type="password" id="password" placeholder="您的密码">
+<!--                <input type="password" placeholder="请再次输入密码">-->
+                <button type="button" onclick="reg()">注册</button>
+            </form>
+        </div>
+        <div class="form-container sign-in-container">
+            <form action="">
+                <h1>登录萌导航</h1>
+                <div class="social-container">
+					<h3>|´・ω・)ノ</h3>
+                </div>
+                <!-- <span>请使用您的帐号以登陆</span> -->
+                <input type="text" id="userPhones" placeholder="萌导航账号">
+                <input type="password" id="userPasswords" placeholder="你的密码">
+                <a href="#">忘记密码？</a>
+                <button type="button" onclick="login()">登录</button>
+            </form>
+        </div>
+
+        <div class="overlay-container">
+            <div class="overlay">
+                <div class="overlay-panel overlay-left">
+                    <h1>已有帐号？</h1>
+                    <p>请使用您的帐号进行登录</p>
+                    <button class="ghost" id="signIn">登录</button>
+                </div>
+                <div class="overlay-panel overlay-right">
+                    <h1>没有帐号？</h1>
+                    <p>立即注册加入我们，和我们一起开始旅程吧</p>
+                    <button type="button" class="ghost" id="signUp">注册</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="style/js/dmaku.js"></script>
+    <script src="style/hullabaloo.js"></script>
+    <script type="text/javascript">
+        $.hulla = new hullabaloo();
+        setTimeout(function() {
+            $.hulla.send("Hi！欢迎您访问萌导航~");
+        }, 1000);
+        setTimeout(function() {
+            $.hulla.send("祝你有个完美的体验！");
+        }, 2000);
+        setTimeout(function() {
+            $.hulla.send("萌导航项目组敬上！");
+        }, 3000);
+
+        swal({
+                title: "请先登陆",
+                text: "在您没有登陆之前是不能进行任何操作的哦！",
+                type: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#bd62f5",
+                confirmButtonText: "好的那我登陆叭",
+                cancelButtonText: "不了我才不要",
+                closeOnConfirm: false,
+                closeOnCancel: false
+            },
+            function(isConfirm){
+                if (isConfirm) {
+                    swal("我就知道你会选择我", "请开始输入你的账号密码以正常使用本站功能", "success");
+                } else {
+                    swal("你选择了不登录", "即将为你跳转首页...", "error");
+                    $('button, .confirm').click(function () {
+                        location.href = './'
+                    })
+                }
+            });
+    </script>
+</body>
+
+</html>
